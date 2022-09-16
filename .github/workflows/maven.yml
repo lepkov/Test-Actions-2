@@ -1,6 +1,10 @@
 # Именно это имя показывается везде
 # Ctrl + Space = Помощник кода
 name: Java CI with Maven
+env:
+  APPLICATION_NAME: "MAVEN"
+  # втавляем номер коммита в переменную 
+  DEPLOY_PACKAGE_NAME: "myapp.java-version-${{ github.sha }}"
 
 on:
   push:
@@ -13,8 +17,12 @@ jobs:
   JobStart:
     runs-on: ubuntu-latest
     steps:
-    - name: Print Jo Started
+    - name: Print Job Started
       run: echo "Job Started"
+    - name: Print Application Name
+      run: |
+        echo "${{ env.APPLICATION_NAME }}"
+      
   build:
     # те самые раннеры
     runs-on: ubuntu-latest
@@ -36,4 +44,7 @@ jobs:
     needs: [build]
     steps:
     - name: Print Job Finished
-      run: echo "Job Finished"
+      run: |
+        echo "Job Finished"
+        echo "Deploy package name is ${{ DEPLOY_PACKAGE_NAME }}"
+        
