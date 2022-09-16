@@ -32,6 +32,8 @@ jobs:
       
   JobEnd:
     runs-on: ubuntu-latest
+    # Запустится не параллельно а только после джобы build
+    needs: [build]
     steps:
     - name: Print Job Finished
       run: echo "Job Finished"
