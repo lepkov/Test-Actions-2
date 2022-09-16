@@ -21,7 +21,7 @@ jobs:
       run: echo "Job Started"
     - name: Print Application Name
       run: |
-        echo "${{ env.APPLICATION_NAME }}"
+        echo "Application Name: ${{ env.APPLICATION_NAME }}"
       
   build:
     # те самые раннеры
