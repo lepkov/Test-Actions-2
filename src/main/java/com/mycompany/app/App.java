@@ -1,6 +1,6 @@
 package com.mycompany.app;
 
-public class StaticCodeExample {
+public class App {
 
     //Unused field
     private int abc;
