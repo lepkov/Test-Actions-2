@@ -2,6 +2,7 @@
 # Именно это имя показывается везде
 # Ctrl + Space = Помощник кода
 name: Java CI with Maven
+# Глобальные энв варс, доступные всем джобам
 env:
   APPLICATION_NAME: "MAVEN"
   # втавляем номер коммита в переменную 
@@ -31,10 +32,15 @@ jobs:
   build:
     # те самые раннеры
     runs-on: ubuntu-latest
-
+    # переменные только для джобы
+    env:
+      VAR1: "MAVEN"
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11 (1 Step)
+      # Переменная только для этого степа
+      env:
+        VAR1: "MAVEN"
       uses: actions/setup-java@v3
       with:
         java-version: '11'
