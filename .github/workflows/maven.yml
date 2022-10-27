@@ -8,7 +8,7 @@ env:
   # втавляем номер коммита в переменную 
   DEPLOY_PACKAGE_NAME: "myapp.java-version-${{ github.sha }}"
 
-on: [push, pull_request]
+on: pull_request
 
 # Каждый джоб запускается в отдельном контейнере и ПАРАЛЛЕЛЬНО с другими
 jobs:
