@@ -59,5 +59,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test XYZ
+        conclusion: ${{ job.status }}
         details_url: "https://vk.com"
         
