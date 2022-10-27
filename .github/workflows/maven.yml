@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ./
+    - uses: LouisBrunner/checks-action@v1.5.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test Basic Success (Implicit)
