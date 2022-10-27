@@ -54,14 +54,16 @@ jobs:
       run: |
         echo "Job Finished"
         echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
-    - uses: actions/create-outputs@v0.0.0-fake
-      id: test
-    - uses: LouisBrunner/checks-action@v1.1.1
-      if: always()
+        
+  test_basic_success_with_output:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
-        conclusion: ${{ job.status }}
+        name: Test Basic Success (Implicit)
+        conclusion: success
         output: |
-          {"summary":${{ steps.test.outputs.summary }}}
+          {"summary":"Test was a success","text_description":"This is a text description of the annotations and images\nWith more stuff\nAnd more"}
         
