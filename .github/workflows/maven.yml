@@ -64,6 +64,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test Basic Success (Implicit)
         conclusion: success
+        action_url: https://example.com/action
+        details_url: https://example.com/details
         output: |
           {"summary":"Test was a success","text_description":"This is a text description of the annotations and images\nWith more stuff\nAnd more"}
         
