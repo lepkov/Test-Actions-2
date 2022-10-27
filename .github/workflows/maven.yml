@@ -54,14 +54,12 @@ jobs:
       run: |
         echo "Job Finished"
         echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
-    - uses: LouisBrunner/checks-action@v1.5.0
+    - uses: LouisBrunner/checks-action@v1.1.1
       if: always()
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         name: Test XYZ
         conclusion: ${{ job.status }}
-        action_url: "https://example.com/action"
-        details_url: "https://example.com/details2"
         output: |
           {"summary":${{ steps.test.outputs.summary }}}
         
